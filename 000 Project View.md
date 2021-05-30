@@ -1,38 +1,41 @@
 [[000 Action View|Action View]]
 
 ```dataviewjs
-dv.table(["Project", "State", "Actions"], dv.array(
-  [
-   dv.pages("#project")
-     .sort(p => p.state)
-     .map(p => ({
-       project: p.file.link,
-	   projectName: p.file.name,
-       state: p.state
-     })),
-   dv.pages("#action")
-     .filter(e => e.project) // filter all project-related actions
-	 .groupBy(e => e.project) // group by project
-     .map(e => ({
-       project: e.key,
-       actions: (e.rows.filter(r => r.file.etags.includes('#action/done') || r.file.etags.includes('#action/canceled')).length) + '/' + e.rows.length
-     }))
-  ].reduce((projects, item, index) => {
-    if (index === 0) { // projects
-      return item.array()
-    } else if (index === 1) {
-  	const actions = item.array()
-  	return projects.map(p => {
-  	  var action = actions.find(row => row.project.path === p.projectName)
-  	  return [
-  	    p.project,
-  		p.state,
-  	    action ? action.actions : '--'
-  	  ]
-  	})
-    }
-  }, {})
-))
+const queryRows = () => {
+  const projects = dv.pages("#project")
+    .sort(p => p.state)
+    .map(p => ({
+      project: p.file.link,
+      projectName: p.file.name,
+      state: p.state
+    }))
+    .array()
+  
+  const actions = dv.pages("#action")
+    .filter(e => e.project) // filter all project-related actions
+    .groupBy(e => e.project) // group by project
+    .map(e => ({
+      project: e.key,
+      actions: (
+      e.rows.filter(r => r.file.etags.includes('#action/done') || r.file.etags.includes('#action/canceled')).length) +
+      '/' +
+      e.rows.length
+    }))
+    .array()
+  
+  const resultRows = projects.map(p => {
+    var action = actions.find(row => row.project.path === p.projectName)
+    return [
+      p.project,
+      p.state,
+      action ? action.actions : '--'
+    ]
+  })
+  
+  return dv.array(resultRows)
+}
+
+dv.table(["Project", "State", "Actions"], queryRows())
 ```
 
 ### Single Actions
