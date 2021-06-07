@@ -8,27 +8,21 @@ end_date::
 
 ### Active
 
-```dataview
-TABLE state AS "State", due_date AS "Due Date"
-FROM #action AND #action/active
-WHERE project = this.file.link
-SORT priority ASC, start_date ASC
+```dataviewjs
+const path = require("path")
+require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/project-action-active.js"))(dv)
 ```
 
 ### Pending | Available
 
-```dataview
-TABLE state AS "State", due_date AS "Due Date"
-FROM #action AND (#action/waiting OR #action/maybe)
-WHERE project = this.file.link
-SORT priority ASC, start_date ASC
+```dataviewjs
+const path = require("path")
+require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/project-action-pending-available.js"))(dv)
 ```
 
 ### Completed
 
-```dataview
-TABLE state AS "State", due_date AS "Due Date"
-FROM #action AND (#action/done OR #action/canceled)
-WHERE project = this.file.link
-SORT due_date DESC
+```dataviewjs
+const path = require("path")
+require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/project-action-completed.js"))(dv)
 ```

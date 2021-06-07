@@ -1,23 +1,22 @@
 [[000 Project View|Project View]]
 
 ### Active
-```dataview
-TABLE priority AS "Priority", state AS "State", project AS "Project", due_date AS "DueDate"
-FROM #action AND #action/active
-SORT priority ASC, start_date ASC
+
+```dataviewjs
+const path = require("path")
+require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/action-view-active.js"))(dv)
 ```
 
 ### Pending | Available
-```dataview
-TABLE priority AS "Priority", state AS "State", project AS "Project", due_date AS "DueDate"
-FROM #action AND (#action/waiting OR #action/maybe)
-SORT state DESC, priority ASC
+
+```dataviewjs
+const path = require("path")
+require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/action-view-pending-available.js"))(dv)
 ```
 
 ### Completed
 
-```dataview
-TABLE priority AS "Priority", state AS "State", project AS "Project", end_date AS "End Date"
-FROM #action AND (#action/done OR #action/canceled)
-SORT end_date DESC
+```dataviewjs
+const path = require("path")
+require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/action-view-completed.js"))(dv);
 ```

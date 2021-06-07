@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "59027183911936b7",
+        "id": "41e73b6b318374f8",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
-            "mode": "preview"
+            "file": "000 Project View.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "000 Project View.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "59027183911936b7",
+  "active": "41e73b6b318374f8",
   "lastOpenFiles": [
-    "README.md",
-    "000 Action View.md",
     "000 Project View.md",
+    "000 Action View.md",
+    "Project 1.md",
+    "Simple Action.md",
     "README_zh.md",
-    "images/project-view.png",
-    "images/project.png",
-    "images/action-view.png",
-    "images/action.png",
+    "Project 2.md",
     "P1 Action 1.md",
-    "P1 Action 2.md"
+    "P1 Action 2.md",
+    "P1 Action 5.md",
+    "P1 Action 3.md"
   ]
 }
