@@ -28,10 +28,3 @@ require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/project-act
 const path = require("path")
 require(path.resolve(dv.app.vault.adapter.basePath, "tools/dv-script/project-action-completed.js"))(dv)
 ```
-
-```dataviewjs
-const archivedProjectMap = dv.pages('#project/archived').array().map(p => p.file.name).reduce((obj, name) =>{obj[name] = 1; return obj}, {})
-// console.log(archivedProjectMap)
-const actions = dv.pages('#action/done OR #action/cancelled').filter(row => !archivedProjectMap[row.project.path])
-console.log(actions)
-```
