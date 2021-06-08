@@ -1,11 +1,11 @@
 [[000 Project View]] | [[000 Action View]]
 
-# Project 1
+# Project3
 
 state:: #project/active
-start_date:: 2020-12-01
-end_date:: 2021-11-12
-due_date::2021-05-01
+start_date::
+end_date::
+
 
 ### Active
 

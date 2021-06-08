@@ -3,8 +3,8 @@ const countTasks = require('./task-utils').countTasks
 
 module.exports = function (dv) {
   const rows = dv.pages(`${config.TAG_ACTION_WAITING} OR ${config.TAG_ACTION_MAYBE}`)
-    .sort(row => row.state, "DESC")
     .sort(row => row.priority)
+    .sort(row => row.state, "desc")
     .map(row => {
       const completedTasks = countTasks(row.file.tasks, true)
       const totalTasks = countTasks(row.file.tasks)

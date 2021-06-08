@@ -8,5 +8,5 @@ end_date:: 2021-05-29
 state:: #action/waiting 
 
 - [x] First task
-- [x] Second task
+- [ ] Second task
 

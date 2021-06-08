@@ -2,8 +2,15 @@ const config = require('./config')
 const countTasks = require('./task-utils').countTasks
 
 module.exports = function (dv) {
-  const rows = dv.pages(`${config.TAG_ACTION_DONE} OR ${config.TAG_ACTION_CANCELED}`)
-    .sort(row => row.end_date, "DESC")
+  // all archived projects
+  const archivedProjectMap = dv.pages(config.TAG_PROJECT_ARCHIVED)
+    .array()
+    .map(p => p.file.name)
+    .reduce((obj, name) =>{obj[name] = 1; return obj}, {})
+
+  const rows = dv.pages(`(${config.TAG_ACTION_DONE} OR ${config.TAG_ACTION_CANCELED}) AND -${config.TAG_ACTION_ARCHIVED}`)
+    .filter(row => !archivedProjectMap[row.project.path])
+    .sort(row => row.end_date, "desc")
     .map(row => {
       const completedTasks = countTasks(row.file.tasks, true)
       const totalTasks = countTasks(row.file.tasks)

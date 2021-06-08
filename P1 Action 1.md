@@ -7,6 +7,6 @@ start_date:: 2021-05-29
 end_date:: 2021-05-29
 state:: #action/done 
 
-- [ ] Some Tasks
+- [x] Some Tasks
 - Some Notes
 

@@ -3,15 +3,15 @@ const countTasks = require('./task-utils').countTasks
 
 module.exports = function (dv) {
   const rows = dv.pages(config.TAG_ACTION_ACTIVE)
-    .sort(row => row.start_date)
     .sort(row => row.priority)
+    .sort(row => row.start_date)
     .map(row => {
       const completedTasks = countTasks(row.file.tasks, true)
       const totalTasks = countTasks(row.file.tasks)
       const percent = totalTasks > 0 ? Math.round(completedTasks / totalTasks * 100) : 0
       return [
         row.file.link,
-      row.priority,
+        row.priority,
         row.state,
         row.project,
         totalTasks ? `${completedTasks}/${totalTasks} (${percent}%)` : '',

@@ -1,6 +1,6 @@
 project:: [[Project 2]]
 from:: 
-priority:: 1
+priority:: 2
 create_date:: 2021-05-28
 due_date:: 
 start_date:: 2021-05-29

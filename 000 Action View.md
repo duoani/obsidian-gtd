@@ -1,4 +1,4 @@
-[[000 Project View|Project View]]
+[[000 Project View]]
 
 ### Active
 

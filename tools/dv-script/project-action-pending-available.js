@@ -16,10 +16,9 @@ module.exports = function (dv) {
         row.file.link,
         row.priority,
         row.state,
-        row.project,
         totalTasks ? `${completedTasks}/${totalTasks} (${percent}%)` : '',
         row.due_date ? row.due_date.toFormat(config.DATE_FORMAT) : ''
       ]
     })
-  dv.table(["Action", "Priority", "State", "Project", "Tasks", "Due Date"], dv.array(rows))
+  dv.table(["Action", "Priority", "State", "Tasks", "Due Date"], dv.array(rows))
 }

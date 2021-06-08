@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "41e73b6b318374f8",
+        "id": "f92ff8ec08acac49",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "000 Project View.md",
+            "file": "000 Action View.md",
             "mode": "source"
           }
         }
@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#action/waiting",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -52,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 181
   },
   "right": {
     "id": "59678ec75d00a0d8",
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "000 Project View.md",
+                "file": "000 Action View.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "41e73b6b318374f8",
+  "active": "f92ff8ec08acac49",
   "lastOpenFiles": [
-    "000 Project View.md",
     "000 Action View.md",
-    "Project 1.md",
-    "Simple Action.md",
+    "README.md",
     "README_zh.md",
-    "Project 2.md",
-    "P1 Action 1.md",
-    "P1 Action 2.md",
-    "P1 Action 5.md",
-    "P1 Action 3.md"
+    "000 Project View.md",
+    "999 Archived Projects.md",
+    "Single Action (Archived).md",
+    "Project 1.md",
+    "Project 5 (Blocked).md",
+    "P5 Action 2.md",
+    "P5 Action 1.md"
   ]
 }

@@ -1,4 +1,4 @@
-[[000 Action View|Action View]]
+[[000 Action View]] | [[999 Archived Projects]]
 
 ```dataviewjs
 const path = require("path")

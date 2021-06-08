@@ -3,7 +3,10 @@ const countTasks = require('./task-utils').countTasks
 
 module.exports = function (dv) {
   const rows = dv.pages(`${config.TAG_ACTION_DONE} OR ${config.TAG_ACTION_CANCELED}`)
-    .sort(row => row.end_date, "DESC")
+    .filter(row => {
+      return row.project && row.project.path === dv.current().file.name
+    })
+    .sort(row => row.end_date, "desc")
     .map(row => {
       const completedTasks = countTasks(row.file.tasks, true)
       const totalTasks = countTasks(row.file.tasks)
@@ -12,10 +15,9 @@ module.exports = function (dv) {
         row.file.link,
         row.priority,
         row.state,
-        row.project,
         totalTasks ? `${completedTasks}/${totalTasks} (${percent}%)` : '',
         row.end_date ? row.end_date.toFormat(config.DATE_FORMAT) : ''
       ]
     })
-  dv.table(["Action", "Priority", "State", "Project", "Tasks", "END Date"], dv.array(rows))
+  dv.table(["Action", "Priority", "State", "Tasks", "END Date"], dv.array(rows))
 }
